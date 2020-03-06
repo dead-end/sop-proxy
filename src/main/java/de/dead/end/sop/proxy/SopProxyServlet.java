@@ -22,7 +22,7 @@ public class SopProxyServlet extends ProxyServlet.Transparent {
 	protected HttpClient newHttpClient() {
 
 		if (useSsl) {
-			final SslContextFactory contextFactory = new SslContextFactory();
+			final SslContextFactory contextFactory = new SslContextFactory.Client();
 			return new HttpClient(contextFactory);
 		}
 
