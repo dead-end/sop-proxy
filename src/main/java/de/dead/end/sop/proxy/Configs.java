@@ -3,6 +3,8 @@ package de.dead.end.sop.proxy;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Properties;
 
 /**
@@ -41,6 +43,15 @@ public class Configs {
 		ensure(key);
 
 		return Integer.parseInt(this.props.getProperty(key));
+	}
+
+	/**
+	 * The method returns a Path property from the configuration file.
+	 */
+	public Path getPath(final String key) {
+		ensure(key);
+
+		return Paths.get(this.props.getProperty(key));
 	}
 
 	/**
