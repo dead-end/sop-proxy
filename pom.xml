@@ -9,6 +9,8 @@
 	<properties>
 		<!-- Adapt this to a version found on https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-maven-plugin/ -->
 		<jettyVersion>9.4.27.v20200227</jettyVersion>
+		
+		<javaxJsonVersion>1.1.4</javaxJsonVersion>
 	</properties>
 
 	<dependencies>
@@ -29,6 +31,18 @@
 			<artifactId>jetty-servlet</artifactId>
 			<version>${jettyVersion}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>javax.json</groupId>
+			<artifactId>javax.json-api</artifactId>
+			<version>${javaxJsonVersion}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.json</artifactId>
+			<version>${javaxJsonVersion}</version>
+		</dependency>
 	</dependencies>
-	
+
 </project>
