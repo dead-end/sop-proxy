@@ -4,8 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import javax.json.Json;
+import javax.json.JsonArrayBuilder;
+import javax.json.JsonObjectBuilder;
 
 /**
  * 
@@ -53,27 +54,26 @@ public class ProxyTarget {
 	}
 
 	/**
-	 * The method returns a JSONObject which represents this object.
+	 * The method creates a JsonObjectBuilder from this object.
 	 */
-	@SuppressWarnings("unchecked")
-	public JSONObject toJSONObject() {
+	public JsonObjectBuilder toJsonObjectBuilder() {
 
-		final JSONObject jsonObject = new JSONObject();
+		final JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
 
-		jsonObject.put(Constants.JSON_ID, id);
-		jsonObject.put(Constants.JSON_URL, url);
+		objectBuilder.add(Constants.JSON_ID, id);
+		objectBuilder.add(Constants.JSON_URL, url);
 
-		final JSONArray dataArray = new JSONArray();
+		final JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
 
 		for (final Entry<String, String> mapEntry : this.data.entrySet()) {
 
-			final JSONObject jsonEntry = new JSONObject();
-			jsonEntry.put(mapEntry.getKey(), mapEntry.getValue());
-			dataArray.add(jsonEntry);
+			final JsonObjectBuilder entryBuilder = Json.createObjectBuilder();
+			entryBuilder.add(mapEntry.getKey(), mapEntry.getValue());
+			arrayBuilder.add(entryBuilder);
 		}
 
-		jsonObject.put(Constants.JSON_DATA, dataArray);
+		objectBuilder.add(Constants.JSON_DATA, arrayBuilder);
 
-		return jsonObject;
+		return objectBuilder;
 	}
 }
