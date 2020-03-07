@@ -1,0 +1,3 @@
+id,url,name
+weather,https://www.weatherapi.com/docs/,Weather
+books,https://www.googleapis.com/books/v1/,Books
