@@ -58,4 +58,15 @@ public interface Constants {
 	final static String HTTP_PREFIX = "http://";
 
 	final static String HTTPS_PREFIX = "https://";
+
+	//
+	// Trust store file and password as system property and as config key.
+	//
+	final static String CFG_TRUST_STORE_FILE = "trust.store.file";
+
+	final static String CFG_TRUST_STORE_PWD = "trust.store.password";
+
+	final static String SYS_TRUST_STORE_FILE = "javax.net.ssl.trustStore";
+
+	final static String SYS_TRUST_STORE_PWD = "javax.net.ssl.trustStorePassword";
 }
