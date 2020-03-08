@@ -13,7 +13,7 @@ public class ParserException extends Exception {
 	 * The constructor is called with the parser, which contains the line and the
 	 * line number which causes that problem.
 	 */
-	public ParserException(final Parser parser, final String format, Object... args) {
+	public ParserException(final Parser parser, final String format, final Object... args) {
 		super(String.format("line: %d '%s' - %s", parser.getCount(), parser.getLine(), String.format(format, args)));
 	}
 }
