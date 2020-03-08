@@ -55,5 +55,7 @@ public interface Constants {
 	//
 	// https protocol prefix
 	//
+	final static String HTTP_PREFIX = "http://";
+
 	final static String HTTPS_PREFIX = "https://";
 }
