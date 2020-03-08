@@ -55,6 +55,21 @@ public class Configs {
 	}
 
 	/**
+	 * The method returns a context property from the configuration file. A context
+	 * has to start with a '/'.
+	 */
+	public String getContext(final String key) {
+		ensure(key);
+
+		final String ctx = this.props.getProperty(key);
+		if (ctx.startsWith("/")) {
+			return ctx;
+		}
+
+		return "/" + ctx;
+	}
+
+	/**
 	 * The method ensures that the properties file contains a given key.
 	 */
 	private void ensure(final String key) {
