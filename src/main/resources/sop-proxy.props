@@ -5,6 +5,14 @@
 port=8080
 
 ###############################################################################
+# The definition of the trust store for the certificates of the proxy targets.
+###############################################################################
+
+trust.store.file=src/main/resources/sop-proxy-trust-store  
+
+trust.store.password=changeit 
+
+###############################################################################
 # The csv file with the target configurations.
 ###############################################################################
 
