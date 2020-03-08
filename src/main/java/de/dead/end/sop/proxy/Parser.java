@@ -38,6 +38,10 @@ public class Parser {
 		return array;
 	}
 
+	public String getArray(final int idx) {
+		return array[idx];
+	}
+
 	/**
 	 * The method does the parsing of the line into an array. It returns true if the
 	 * parsing was possible.
