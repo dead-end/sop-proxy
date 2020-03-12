@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import javax.json.Json;
-import javax.json.JsonArrayBuilder;
 import javax.json.JsonObjectBuilder;
 
 /**
@@ -63,16 +62,14 @@ public class ProxyTarget {
 		objectBuilder.add(Constants.JSON_ID, id);
 		objectBuilder.add(Constants.JSON_URL, url);
 
-		final JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
+		final JsonObjectBuilder entryBuilder = Json.createObjectBuilder();
 
 		for (final Entry<String, String> mapEntry : this.data.entrySet()) {
 
-			final JsonObjectBuilder entryBuilder = Json.createObjectBuilder();
 			entryBuilder.add(mapEntry.getKey(), mapEntry.getValue());
-			arrayBuilder.add(entryBuilder);
 		}
 
-		objectBuilder.add(Constants.JSON_DATA, arrayBuilder);
+		objectBuilder.add(Constants.JSON_DATA, entryBuilder);
 
 		return objectBuilder;
 	}
