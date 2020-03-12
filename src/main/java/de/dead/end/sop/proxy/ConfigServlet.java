@@ -112,6 +112,7 @@ public class ConfigServlet extends HttpServlet {
 		switch (status) {
 		case OK:
 			response.setStatus(HttpServletResponse.SC_OK);
+			break;
 
 		case ERROR:
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
