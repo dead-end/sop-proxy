@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+$(document).ready(function() {
+
+  $.get("/config/list", function(data, status){
+    var table = $('#config-list');
+    $.each(data, function(index, value) {
+      table.append('<tr><td>'+value.id+'</td><td>'+value.data.name+'</td><td>'+value.url+'</td></tr>');
+    });
+  });
+  	 
+});
+  
+    </script>
+  </head>
+  <body>
+
+    <h2>Config list</h2>
+    <table id="config-list">
+      <tr> <th>Id</th> <th>Name</th> <th>url</th> </tr>
+    </table>
+
+  </body>
+</html>
