@@ -1,17 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="app.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
 $(document).ready(function() {
 
   $.get("/config/list", function(data, status){
-    var table = $('#config-list');
+    var listTable = $('#config-list');
     $.each(data, function(index, value) {
-      table.append('<tr><td>'+value.id+'</td><td>'+value.data.name+'</td><td>'+value.url+'</td></tr>');
+      listTable.append('<tr><td>'+value.id+'</td><td>'+value.data.name+'</td><td>'+value.url+'</td></tr>');
     });
   });
-  	 
+  
+  $.get("/proxy/books/volumes?q=isbn:1492037257", function(data, status){
+    var book = $('#book');
+    book.append('<tr><td>ISBN</td><td>1492037257</td></tr>');
+    book.append('<tr><td>Title</td><td>'+data.items[0].volumeInfo.title+'</td></tr>');
+    book.append('<tr><td>Subtitle</td><td>'+data.items[0].volumeInfo.subtitle+'</td></tr>');
+  });
+
+  $.get("/proxy/weather/weather_conditions.json", function(data, status){
+    var weatherTable = $('#weather');
+    $.each(data, function(index, value) {
+      if (index < 10) {
+        weatherTable.append('<tr><td>'+value.code+'</td><td>'+value.day+'</td><td>'+value.night+'</td></tr>');
+      }
+    });
+  });
+		
 });
   
     </script>
@@ -21,6 +38,16 @@ $(document).ready(function() {
     <h2>Config list</h2>
     <table id="config-list">
       <tr> <th>Id</th> <th>Name</th> <th>url</th> </tr>
+    </table>
+
+    <h2>Book</h2>
+    <table id="book">
+      <tr> <th>Name</th> <th>Value</th> </tr>
+    </table>
+
+    <h2>Weather</h2>
+    <table id="weather">
+      <tr> <th>Code</th> <th>Day</th> <th>Night</th> </tr>
     </table>
 
   </body>
