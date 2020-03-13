@@ -1,6 +1,6 @@
 # sop-proxy
 
-[Sop-Proxy](resources/sop-proxy.png)
+![Sop-Proxy](resources/sop-proxy.png)
 
 # Example
 ## Remote URL's
