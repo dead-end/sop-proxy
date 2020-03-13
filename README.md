@@ -29,8 +29,8 @@ Both urls are using ssl, so we need to create a trust store with their certifica
 Download the certificates and import them to a truststore with the following commands:
 
 ```
-keytool -import -file storage-googleapis.pem -alias storage-googleapis -keystore trust-store -storepass changeit
-keytool -import -file weatherapi-com.pem -alias weatherapi-com -keystore trust-store -storepass changeit
+keytool -import -file google-books.pem -alias google-books -keystore trust-store -storepass changeit
+keytool -import -file weatherapi.pem -alias weatherapi -keystore trust-store -storepass changeit
 ```
 
 ## CSV File
@@ -48,9 +48,7 @@ localhost:8080, then the incoming requests are mapped in the following manner.
 
 |Lokal URL|Remote URL|
 |---|---|
-|http://localhost:8080/proxy/weather/|https://www.weatherapi.com/docs/|
 |http://localhost:8080/proxy/weather/weather_conditions.json|https://www.weatherapi.com/docs/weather_conditions.json|
-|http://localhost:8080/proxy/books/|https://www.googleapis.com/books/v1/|
 |http://localhost:8080/proxy/books/volumes?q=isbn:1492037257|https://www.googleapis.com/books/v1/volumes?q=isbn:1492037257|
 
 
