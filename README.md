@@ -1,4 +1,20 @@
-# sop-proxy
+# Sop-Proxy
+
+The Sop-Proxy is a program that allows a javascript application to access 
+data on different servers. It is an easy to use proxy that adresses the 
+restrictions of the 
+[same-origin-policy](https://en.wikipedia.org/wiki/Same-origin_policy).
+
+The application is started with a csv file, which contains definitions of the
+remote targets, that should be reached. Each target has at least an id and an
+url and for each target a proxy servlet is created with the id as part of the
+context path.
+
+Additionally the Sop-Proxy has a servlet the serves the content of a configured
+directory. The directory contains the javascript application (html, css, javascript, ...).
+
+The last part of the Sop-Proxy is a config servlet, which provides a simple
+REST api for the configured proxies.
 
 ![Sop-Proxy](resources/sop-proxy.png)
 
@@ -11,8 +27,8 @@ For the following example we are using these two urls, which return json data:
 
 Both urls are using ssl, so we need to create a trust store with their certificates:
 
-```  
-keytool -import -file storage-googleapis-com.pem -alias storage-googleapis-com -keystore sop-proxy-trust-store -storepass changeit
+```
+keytool -import -file storage-googleapis.pem -alias storage-googleapis -keystore sop-proxy-trust-store -storepass changeit
 keytool -import -file weatherapi-com.pem -alias weatherapi-com -keystore sop-proxy-trust-store -storepass changeit
 ```
 
