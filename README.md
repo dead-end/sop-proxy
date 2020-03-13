@@ -25,15 +25,17 @@ For the following example we are using these two urls, which return json data:
 - https://www.weatherapi.com/docs/weather_conditions.json
 - https://www.googleapis.com/books/v1/volumes?q=isbn:1492037257
 
-Both urls are using ssl, so we need to create a trust store with their certificates:
+Both urls are using ssl, so we need to create a trust store with their certificates.
+Download the certificates and import them to a truststore with the following commands:
 
 ```
-keytool -import -file storage-googleapis.pem -alias storage-googleapis -keystore sop-proxy-trust-store -storepass changeit
-keytool -import -file weatherapi-com.pem -alias weatherapi-com -keystore sop-proxy-trust-store -storepass changeit
+keytool -import -file storage-googleapis.pem -alias storage-googleapis -keystore trust-store -storepass changeit
+keytool -import -file weatherapi-com.pem -alias weatherapi-com -keystore trust-store -storepass changeit
 ```
 
 ## CSV File
-We create a csv file with the proxy configurations:
+We create a csv file with the proxy configurations. It contains the required id and
+url for each proxy and additionally a name to display in the javascript appclication.
 
 ```csv
 id,url,name
@@ -54,6 +56,8 @@ localhost:8080, then the incoming requests are mapped in the following manner.
 
 ## Config Servlet
 
+You can get a list of all proxy configurations with the following command:
+
 http://localhost:8080/config/list
 
 ```json
@@ -61,33 +65,32 @@ http://localhost:8080/config/list
   {
     "id": "books",
     "url": "https://www.googleapis.com/books/v1/",
-    "data": [
-      {
+    "data": {
         "name": "Books"
-      }
-    ]
+    }
   },
   {
     "id": "weather",
     "url": "https://www.weatherapi.com/docs/",
-    "data": [
-      {
+    "data": {
         "name": "Weather"
-      }
-    ]
+    }
   }
 ]
 ```
-http://localhost:8080/config/get/books
+
+It is also possible to access an individual proxy configuration with the
+id of the proxy:
+
+http://localhost:8080/config/get/<id>
 
 ```json
 {
   "id": "books",
   "url": "https://www.googleapis.com/books/v1/",
-  "data": [
-    {
+  "data": {
       "name": "Books"
-    }
-  ]
+  }
 }
 ```
+
