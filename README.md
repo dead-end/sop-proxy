@@ -1,5 +1,7 @@
 # sop-proxy
 
+[Sop-Proxy](resources/sop-proxy.png)
+
 # Example
 ## Remote URL's
 For the following example we are using these two urls, which return json data:
