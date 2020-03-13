@@ -42,7 +42,7 @@ public class ConfigServlet extends HttpServlet {
 		final String path = request.getPathInfo();
 
 		if (path == null || "".equals(path) || "/".equals(path)) {
-			writeStatus(response, Status.OK, "Ready to run!");
+			writeStatus(response, HttpServletResponse.SC_OK, "Ready to run!");
 		}
 
 		else if (SELECT_LIST.equals(path)) {
@@ -53,7 +53,7 @@ public class ConfigServlet extends HttpServlet {
 			processTarget(response, path, proxyTargets);
 
 		} else {
-			writeStatus(response, Status.ERROR, "Unknown selector : " + path);
+			writeStatus(response, HttpServletResponse.SC_INTERNAL_SERVER_ERROR, String.format("Unknown selector: %s", path));
 		}
 	}
 
@@ -69,9 +69,9 @@ public class ConfigServlet extends HttpServlet {
 		final ProxyTarget proxyTarget = proxyTargets.get(id);
 
 		if (proxyTarget == null) {
-			writeStatus(response, Status.NOT_FOUND, "Unknown proxy id: " + id);
+			writeStatus(response, HttpServletResponse.SC_NOT_FOUND, String.format("Unknown proxy id: %s", id));
 		} else {
-			writeResult(response, Status.OK, proxyTarget.toJsonObjectBuilder().build().toString());
+			writeJsonResult(response, HttpServletResponse.SC_OK, proxyTarget.toJsonObjectBuilder().build().toString());
 		}
 	}
 
@@ -80,65 +80,60 @@ public class ConfigServlet extends HttpServlet {
 	 * result to the client.
 	 */
 	private void processList(final HttpServletResponse response, final Map<String, ProxyTarget> proxyTargets) throws IOException {
+
 		final JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
 
 		for (final Entry<String, ProxyTarget> entry : proxyTargets.entrySet()) {
 			arrayBuilder.add(entry.getValue().toJsonObjectBuilder());
 		}
 
-		writeResult(response, Status.OK, arrayBuilder.build().toString());
+		writeJsonResult(response, HttpServletResponse.SC_OK, arrayBuilder.build().toString());
 	}
 
 	/**
 	 * The method creates a json object for the status and writes the result to the
 	 * client.
 	 */
-	private void writeStatus(final HttpServletResponse response, final Status status, final String msg) throws IOException {
+	private void writeStatus(final HttpServletResponse response, final int status, final String msg) throws IOException {
 
 		final JsonObjectBuilder builder = Json.createObjectBuilder();
 
-		builder.add("status", status.toString());
+		builder.add("status", getStatus(status));
 		builder.add("msg", msg);
 
-		writeResult(response, status, builder.build().toString());
+		writeJsonResult(response, status, builder.build().toString());
 	}
 
 	/**
-	 * The method writes the result to the response. It maps the Status to a http
-	 * status and sets the content type and encoding.
+	 * The method writes the json result to the response.
 	 */
-	private void writeResult(final HttpServletResponse response, final Status status, final String result) throws IOException {
+	private void writeJsonResult(final HttpServletResponse response, final int status, final String json) throws IOException {
 
-		switch (status) {
-		case OK:
-			response.setStatus(HttpServletResponse.SC_OK);
-			break;
-
-		case ERROR:
-			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-			break;
-
-		case NOT_FOUND:
-			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-			break;
-
-		default:
-			writeResult(response, Status.ERROR, "Unknown status: " + status);
-			return;
-		}
+		response.setStatus(status);
 
 		response.setContentType("text/json");
 		response.setCharacterEncoding("utf-8");
 
-		response.getWriter().append(result);
+		response.getWriter().append(json);
 	}
 
 	/**
-	 * 
-	 * @author dead-end
-	 *
+	 * The method returns a string representation of the status.
 	 */
-	private static enum Status {
-		OK, ERROR, NOT_FOUND
+	private String getStatus(final int status) {
+
+		if (status == HttpServletResponse.SC_OK) {
+			return "OK";
+		}
+
+		if (status == HttpServletResponse.SC_INTERNAL_SERVER_ERROR) {
+			return "ERROR";
+		}
+
+		if (status == HttpServletResponse.SC_NOT_FOUND) {
+			return "NOT-FOUND";
+		}
+
+		return String.format("UNKNOWN-%d", status);
 	}
 }
