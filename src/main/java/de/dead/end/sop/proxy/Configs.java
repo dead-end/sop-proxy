@@ -31,27 +31,21 @@ public class Configs {
 	 * The method returns a String property from the configuration file.
 	 */
 	public String getString(final String key) {
-		ensure(key);
-
-		return this.props.getProperty(key);
+		return getValue(key);
 	}
 
 	/**
 	 * The method returns an int property from the configuration file.
 	 */
 	public int getInt(final String key) {
-		ensure(key);
-
-		return Integer.parseInt(this.props.getProperty(key));
+		return Integer.parseInt(getValue(key));
 	}
 
 	/**
 	 * The method returns a Path property from the configuration file.
 	 */
 	public Path getPath(final String key) {
-		ensure(key);
-
-		return Paths.get(this.props.getProperty(key));
+		return Paths.get(getValue(key));
 	}
 
 	/**
@@ -59,9 +53,8 @@ public class Configs {
 	 * has to start with a '/'.
 	 */
 	public String getContext(final String key) {
-		ensure(key);
 
-		final String ctx = this.props.getProperty(key);
+		final String ctx = getValue(key);
 		if (ctx.startsWith("/")) {
 			return ctx;
 		}
@@ -70,12 +63,15 @@ public class Configs {
 	}
 
 	/**
-	 * The method ensures that the properties file contains a given key.
+	 * The method ensures that the properties file contains a given key. It returns
+	 * the value, which is trimmed.
 	 */
-	private void ensure(final String key) {
+	private String getValue(final String key) {
 
 		if (!props.containsKey(key)) {
 			throw new IllegalArgumentException(String.format("Key not found: %s", key));
 		}
+
+		return this.props.getProperty(key).trim();
 	}
 }
