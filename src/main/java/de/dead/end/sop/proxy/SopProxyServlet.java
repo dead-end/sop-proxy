@@ -14,8 +14,13 @@ public class SopProxyServlet extends ProxyServlet.Transparent {
 
 	private final boolean useSsl;
 
-	public SopProxyServlet(final boolean useSsl) {
+	private final boolean trustAll;
+
+	public SopProxyServlet(final boolean useSsl, final boolean trustAll) {
+
 		this.useSsl = useSsl;
+
+		this.trustAll = trustAll;
 	}
 
 	@Override
@@ -23,6 +28,13 @@ public class SopProxyServlet extends ProxyServlet.Transparent {
 
 		if (useSsl) {
 			final SslContextFactory contextFactory = new SslContextFactory.Client();
+
+			//
+			// Disabling the truststore can be a security issue. This is only recommended
+			// for test stages.
+			//
+			contextFactory.setTrustAll(trustAll);
+
 			return new HttpClient(contextFactory);
 		}
 
