@@ -72,4 +72,7 @@ public interface Constants {
 
 	final static String SYS_TRUST_STORE_PWD = "javax.net.ssl.trustStorePassword";
 
+	final static String ARGS_TEMPL = "template";
+
+	final static String PROPS_TEMPL = "sop-proxy.props";
 }
