@@ -42,6 +42,13 @@ public class Configs {
 	}
 
 	/**
+	 * The method returns a boolean property from the configuration file.
+	 */
+	public boolean getBoolean(final String key) {
+		return Boolean.parseBoolean(getValue(key));
+	}
+
+	/**
 	 * The method returns a Path property from the configuration file.
 	 */
 	public Path getPath(final String key) {
