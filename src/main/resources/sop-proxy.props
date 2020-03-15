@@ -22,6 +22,10 @@ app.path=src/main/resources
 ################################################################################
 # The definition of the trust store for the certificates of the proxy targets.
 # This is only necessary if at least one target is accessed via ssl.
+# You can add a certificate, that you have downloaded to a trust store with the
+# following command. Ensure that you have a proper password.
+#
+#   keytool -import -file my-cert.pem -alias my-cert -keystore trust-store -storepass changeit
 #
 # It is possible to disable the trust checks for the certificates. This can be a
 # security issue. It is only recommended for test stages:
