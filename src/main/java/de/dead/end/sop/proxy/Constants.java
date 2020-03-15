@@ -66,7 +66,10 @@ public interface Constants {
 
 	final static String CFG_TRUST_STORE_PWD = "trust.store.password";
 
+	final static String CFG_TRUST_ALL = "trust.all";
+
 	final static String SYS_TRUST_STORE_FILE = "javax.net.ssl.trustStore";
 
 	final static String SYS_TRUST_STORE_PWD = "javax.net.ssl.trustStorePassword";
+
 }
