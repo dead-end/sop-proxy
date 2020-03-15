@@ -1,6 +1,7 @@
 package de.dead.end.sop.proxy;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Path;
 import java.util.Map;
 
@@ -169,14 +170,47 @@ public class SopProxy {
 	}
 
 	/**
+	 * The method prints the props template to stdout.
+	 */
+	private static void template() throws IOException {
+
+		final InputStream inputStream = SopProxy.class.getClassLoader().getResourceAsStream(Constants.PROPS_TEMPL);
+		inputStream.transferTo(System.out);
+		inputStream.close();
+
+		System.exit(0);
+	}
+
+	/**
+	 * The method prints the usage of the program.
+	 */
+	private static void usage() {
+
+		System.err.println("Usage:");
+		System.err.println("\tjava -jar sop-proxy-exec-0.1.jar <properties-file>");
+		System.err.println("  or:");
+		System.err.println("\tjava -jar sop-proxy-exec-0.1.jar template");
+		System.exit(1);
+	}
+
+	/**
 	 * The main method checks the args (which is the properties file) and starts the
 	 * application.
 	 */
 	public static void main(final String[] args) throws Exception {
 
+		//
+		// Ensure that there is a argument.
+		//
 		if (args.length != 1) {
-			System.err.println("Usage: SopProxy <properties-file>");
-			System.exit(1);
+			usage();
+		}
+
+		//
+		// Print the template to stdout.
+		//
+		if (Constants.ARGS_TEMPL.equals(args[0])) {
+			template();
 		}
 
 		final Configs configs = new Configs(args[0]);
