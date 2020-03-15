@@ -38,7 +38,7 @@ At least the following parameters have to be set in the properties file.
 ```
 csv.file=<csv-file>
 
-app.path=<directory with the app (html, javascript, css, ..)>
+app.path=<app-directory with: html, javascript, css, ...>
 ```
 
 ## CSV File
@@ -80,8 +80,7 @@ keytool -import -file weatherapi.pem -alias weatherapi -keystore trust-store -st
 
 With the preparations done, you can write an application, that lists, for 
 example informations about a book, that was requested from google with the uri:
-
-    /proxy/books/volumes?q=isbn:1492037257
+`/proxy/books/volumes?q=isbn:1492037257`.
 
 ```html
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
