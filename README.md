@@ -46,24 +46,12 @@ app.path=<app-directory with: html, javascript, css, ...>
 ```
 
 ## CSV File
-We create a csv file with the proxy configurations. It contains the required 
-*id* and *url* for each proxy and additionally a *name* to display in the 
-javascript application.
+We have to create a csv file with the proxy configurations. It contains the 
+required *id* and *url* for each proxy and additionally a *name* to display in the 
+javascript application. The following diagram shows the csv file, the request
+from the browser and the request that is send to the target by the proxy.
 
-```csv
-id,url,name
-weather,https://www.weatherapi.com/docs/,Weather
-books,https://www.googleapis.com/books/v1/,Books
-```
-
-For each entry in the csv file, a proxy servlet is created. If the sop-proxy 
-runs on `localhost:8080`, then the incoming requests are mapped in the following 
-manner.
-
-|Lokal URL|Remote URL|
-|---|---|
-|http://localhost:8080/proxy/weather/weather_conditions.json|https://www.weatherapi.com/docs/weather_conditions.json|
-|http://localhost:8080/proxy/books/volumes?q=isbn:1492037257|https://www.googleapis.com/books/v1/volumes?q=isbn:1492037257|
+![Sop-Proxy](resources/sop-proxy.png)
 
 ## Remote URL's
 For the following example we are using these two urls, which return json data:
