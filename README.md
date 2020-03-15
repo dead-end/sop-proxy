@@ -5,8 +5,8 @@ on different servers. It is an easy to use proxy that addresses the restrictions
 of the [same-origin-policy](https://en.wikipedia.org/wiki/Same-origin_policy).
 
 The application is started with a csv file, which contains definitions of the
-remote targets, that should be reached. Each target has at least an id and an
-url and for each target a proxy servlet is created with the id as part of the
+remote targets, that should be reached. Each target has at least an *id* and an
+*url* and for each target a proxy servlet is created with the id as part of the
 context path.
 
 Additionally the Sop-Proxy has a servlet the serves the content of a configured
@@ -19,7 +19,8 @@ api for the configured proxies.
 ![Sop-Proxy](resources/sop-proxy.png)
 
 # Example
-The following example illustrates the usage of the sop-proxy. The files are in
+The following example illustrates the usage of the sop-proxy. The files can be 
+found in the 
 [resources directory](https://github.com/dead-end/sop-proxy/tree/master/src/main/resources)
 
 The proxy is provided as an executable jar file and is called with a properties 
@@ -44,9 +45,9 @@ app.path=<app-directory with: html, javascript, css, ...>
 ```
 
 ## CSV File
-We create a csv file with the proxy configurations. It contains the required id 
-and url for each proxy and additionally a name to display in the javascript 
-application.
+We create a csv file with the proxy configurations. It contains the required 
+*id* and *url* for each proxy and additionally a *name* to display in the 
+javascript application.
 
 ```csv
 id,url,name
