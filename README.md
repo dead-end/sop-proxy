@@ -20,7 +20,7 @@ api for the configured proxies.
 
 # Example
 The following example illustrates the usage of the sop-proxy. The files are in
-[resources directory](tree/master/src/main/resources/)
+[resources directory](https://github.com/dead-end/sop-proxy/tree/master/src/main/resources)
 
 The proxy is provided as an executable jar file and is called with a properties 
 file.
