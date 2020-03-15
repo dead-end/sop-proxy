@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>140</x>
-      <y>490</y>
+      <x>120</x>
+      <y>520</y>
       <w>500</w>
       <h>30</h>
     </coordinates>
@@ -16,8 +16,8 @@ http://localhost:8080/proxy/books/volumes?q=isbn:1492037257</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>130</x>
-      <y>430</y>
+      <x>110</x>
+      <y>460</y>
       <w>30</w>
       <h>80</h>
     </coordinates>
@@ -27,8 +27,8 @@ http://localhost:8080/proxy/books/volumes?q=isbn:1492037257</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>430</y>
+      <x>340</x>
+      <y>460</y>
       <w>30</w>
       <h>80</h>
     </coordinates>
@@ -38,8 +38,8 @@ http://localhost:8080/proxy/books/volumes?q=isbn:1492037257</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>410</x>
-      <y>430</y>
+      <x>390</x>
+      <y>460</y>
       <w>30</w>
       <h>80</h>
     </coordinates>
@@ -49,8 +49,8 @@ http://localhost:8080/proxy/books/volumes?q=isbn:1492037257</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
-      <y>430</y>
+      <x>610</x>
+      <y>460</y>
       <w>30</w>
       <h>80</h>
     </coordinates>
@@ -60,8 +60,8 @@ http://localhost:8080/proxy/books/volumes?q=isbn:1492037257</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>790</x>
-      <y>490</y>
+      <x>770</x>
+      <y>520</y>
       <w>520</w>
       <h>30</h>
     </coordinates>
@@ -72,8 +72,8 @@ https://www.googleapis.com/books/v1/volumes?q=isbn:1492037257</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>780</x>
-      <y>430</y>
+      <x>760</x>
+      <y>460</y>
       <w>30</w>
       <h>80</h>
     </coordinates>
@@ -83,8 +83,8 @@ https://www.googleapis.com/books/v1/volumes?q=isbn:1492037257</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1080</x>
-      <y>430</y>
+      <x>1060</x>
+      <y>460</y>
       <w>30</w>
       <h>80</h>
     </coordinates>
@@ -94,8 +94,8 @@ https://www.googleapis.com/books/v1/volumes?q=isbn:1492037257</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>780</x>
-      <y>430</y>
+      <x>760</x>
+      <y>460</y>
       <w>330</w>
       <h>40</h>
     </coordinates>
@@ -106,8 +106,8 @@ csv url</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1300</x>
-      <y>430</y>
+      <x>1280</x>
+      <y>460</y>
       <w>30</w>
       <h>80</h>
     </coordinates>
@@ -117,8 +117,8 @@ csv url</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1080</x>
-      <y>430</y>
+      <x>1060</x>
+      <y>460</y>
       <w>250</w>
       <h>40</h>
     </coordinates>
@@ -129,8 +129,8 @@ additional uri</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>410</x>
-      <y>430</y>
+      <x>390</x>
+      <y>460</y>
       <w>250</w>
       <h>40</h>
     </coordinates>
@@ -141,8 +141,8 @@ additional uri</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>430</y>
+      <x>340</x>
+      <y>460</y>
       <w>80</w>
       <h>50</h>
     </coordinates>
@@ -154,8 +154,8 @@ id</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>130</x>
-      <y>430</y>
+      <x>110</x>
+      <y>460</y>
       <w>260</w>
       <h>50</h>
     </coordinates>
@@ -167,8 +167,8 @@ proxy context</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>390</x>
-      <y>350</y>
+      <x>340</x>
+      <y>380</y>
       <w>100</w>
       <h>100</h>
     </coordinates>
@@ -178,19 +178,19 @@ proxy context</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>680</x>
-      <y>350</y>
-      <w>240</w>
+      <x>770</x>
+      <y>380</y>
+      <w>320</w>
       <h>110</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>220.0;90.0;10.0;10.0</additional_attributes>
+    <additional_attributes>300.0;90.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>440</x>
-      <y>300</y>
+      <x>420</x>
+      <y>330</y>
       <w>440</w>
       <h>60</h>
     </coordinates>
@@ -206,8 +206,8 @@ books, https://www.googleapis.com/books/v1/, Books</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
-      <y>490</y>
+      <x>610</x>
+      <y>520</y>
       <w>180</w>
       <h>40</h>
     </coordinates>
@@ -218,25 +218,47 @@ books, https://www.googleapis.com/books/v1/, Books</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>130</x>
-      <y>530</y>
-      <w>240</w>
+      <x>110</x>
+      <y>560</y>
+      <w>270</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>lt=-
+    <panel_attributes>lt=&lt;&lt;-
 *Request from the browser*</panel_attributes>
-    <additional_attributes>220.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>780</x>
-      <y>530</y>
-      <w>200</w>
+      <x>760</x>
+      <y>560</y>
+      <w>250</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>lt=-
+    <panel_attributes>lt=&lt;&lt;-
 *Request to the target*</panel_attributes>
-    <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>380</y>
+      <w>310</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>290.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>380</y>
+      <w>90</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;80.0;70.0;10.0</additional_attributes>
   </element>
 </diagram>
