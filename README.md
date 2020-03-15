@@ -54,18 +54,13 @@ from the browser and the request that is send to the target by the proxy.
 ![Sop-Proxy](resources/mapping.png)
 
 ## Remote URL's
-For the following example we are using these two urls, which return json data:
-
-- https://www.weatherapi.com/docs/weather_conditions.json
-- https://www.googleapis.com/books/v1/volumes?q=isbn:1492037257
-
-Both urls are using ssl, so we need to create a trust store with their 
-certificates. Download the certificates and import them to a trust store with 
-the following commands:
+In our current example we are trying to access the target with *https*. To 
+validate the remote certificate we need to create and configure a trust store.
+Download the certificate and import it to a trust store with the following 
+command:
 
 ```
 keytool -import -file google-books.pem -alias google-books -keystore trust-store -storepass changeit
-keytool -import -file weatherapi.pem -alias weatherapi -keystore trust-store -storepass changeit
 ```
 
 ## Application
