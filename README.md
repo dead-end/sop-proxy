@@ -51,7 +51,7 @@ required *id* and *url* for each proxy and additionally a *name* to display in t
 javascript application. The following diagram shows the csv file, the request
 from the browser and the request that is send to the target by the proxy.
 
-![Sop-Proxy](resources/sop-proxy.png)
+![Sop-Proxy](resources/mapping.png)
 
 ## Remote URL's
 For the following example we are using these two urls, which return json data:
