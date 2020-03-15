@@ -19,9 +19,11 @@ api for the configured proxies.
 ![Sop-Proxy](resources/sop-proxy.png)
 
 # Example
+The following example illustrates the usage of the sop-proxy. The files are in
+[resources directory](tree/master/src/main/resources)
 
-The following example illustrates the usage of the sop-proxy. The proxy is 
-provided as an executable jar file and is called with a properties file.
+The proxy is provided as an executable jar file and is called with a properties 
+file.
 
 ```bash
 java -jar sop-proxy-exec-0.1.jar <properties-file>
@@ -104,10 +106,7 @@ example informations about a book, that was requested from google with the uri:
 </table>
 ```
 
-
-
 ## Config Servlet
-
 You can get a list of all proxy configurations with the following command:
 
 http://localhost:8080/config/list
@@ -118,14 +117,14 @@ http://localhost:8080/config/list
     "id": "books",
     "url": "https://www.googleapis.com/books/v1/",
     "data": {
-        "name": "Books"
+      "name": "Books"
     }
   },
   {
     "id": "weather",
     "url": "https://www.weatherapi.com/docs/",
     "data": {
-        "name": "Weather"
+      "name": "Weather"
     }
   }
 ]
@@ -134,14 +133,14 @@ http://localhost:8080/config/list
 It is also possible to access an individual proxy configuration with the
 id of the proxy:
 
-http://localhost:8080/config/get/<id>
+http://localhost:8080/config/get/books
 
 ```json
 {
   "id": "books",
   "url": "https://www.googleapis.com/books/v1/",
   "data": {
-      "name": "Books"
+    "name": "Books"
   }
 }
 ```
