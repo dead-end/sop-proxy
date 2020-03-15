@@ -50,7 +50,7 @@ public class SopProxy {
 	/**
 	 * The method creates a proxy servlet and a servlet holder for the host.
 	 */
-	private ServletHolder getProxyServletHolder(final String host, final String prefix) {
+	private ServletHolder getProxyServletHolder(final String host, final String prefix, final boolean trustAll) {
 
 		final boolean useSsl = host.startsWith(Constants.HTTPS_PREFIX);
 
@@ -61,7 +61,7 @@ public class SopProxy {
 		// implements the ServletConfig interface. This class will organize the loading
 		// of the servlet when needed or requested.
 		//
-		final ServletHolder servletHolder = new ServletHolder(new SopProxyServlet(useSsl));
+		final ServletHolder servletHolder = new ServletHolder(new SopProxyServlet(useSsl, trustAll));
 
 		servletHolder.setInitParameter(Constants.KEY_PROXY_TO, host);
 		servletHolder.setInitParameter(Constants.KEY_PREFIX, prefix);
@@ -76,13 +76,15 @@ public class SopProxy {
 
 		final String proxyCtx = configs.getContext(Constants.CFG_PROXY_CTX);
 
+		final boolean trustAll = configs.getBoolean(Constants.CFG_TRUST_ALL);
+
 		for (final ProxyTarget target : proxyTargets.values()) {
 
 			final String prefix = String.format("%s/%s", proxyCtx, target.getId());
 
 			final String context = String.format("%s/%s/*", proxyCtx, target.getId());
 
-			final ServletHolder servletHolder = getProxyServletHolder(target.getUrl(), prefix);
+			final ServletHolder servletHolder = getProxyServletHolder(target.getUrl(), prefix, trustAll);
 
 			servletContextHandler.addServlet(servletHolder, context);
 		}
