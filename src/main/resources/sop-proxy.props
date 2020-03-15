@@ -6,11 +6,18 @@ port=8080
 
 ###############################################################################
 # The definition of the trust store for the certificates of the proxy targets.
+#
+# It is possible to disable the trust checks for the certificates. This can be
+# a security issue. It is only recommended for test stages:
+#
+#   trust.all=true
 ###############################################################################
 
 trust.store.file=src/main/resources/sop-proxy-trust-store  
 
 trust.store.password=changeit 
+
+trust.all=false
 
 ###############################################################################
 # The csv file with the target configurations.
