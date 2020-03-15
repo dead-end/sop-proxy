@@ -23,8 +23,9 @@ The following example illustrates the usage of the sop-proxy. The files can be
 found in the 
 [resources directory](https://github.com/dead-end/sop-proxy/tree/master/src/main/resources)
 
-The proxy is provided as an executable jar file and is called with a properties 
-file.
+The proxy is provided as an executable jar file that can be downloaded
+[here](https://github.com/dead-end/sop-proxy/releases/latest). It is called with 
+a properties file.
 
 ```bash
 java -jar sop-proxy-exec-0.1.jar <properties-file>
