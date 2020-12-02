@@ -8,7 +8,7 @@
 
 	<properties>
 		<!-- Adapt this to a version found on https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-maven-plugin/ -->
-		<jettyVersion>9.4.27.v20200227</jettyVersion>
+		<jettyVersion>9.4.35.v20201120</jettyVersion>
 
 		<javaxJsonVersion>1.1.4</javaxJsonVersion>
 
